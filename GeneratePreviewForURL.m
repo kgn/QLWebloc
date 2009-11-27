@@ -17,9 +17,15 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
     
     NSString *weblocPath = [(NSURL *)url path];
     WeblocData *weblocData = [[WeblocData alloc] initWithFile:weblocPath];
-    NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
-    [props setObject:@"UTF-8" forKey:(NSString *)kQLPreviewPropertyTextEncodingNameKey];
-    [props setObject:@"text/html" forKey:(NSString *)kQLPreviewPropertyMIMETypeKey];
+    NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
+    [properties setObject:@"UTF-8" forKey:(NSString *)kQLPreviewPropertyTextEncodingNameKey];
+    [properties setObject:@"text/html" forKey:(NSString *)kQLPreviewPropertyMIMETypeKey];
+//these may have worked in 10.5 but they don't work anymore
+//    [properties setObject:(id)kCFBooleanTrue forKey:@"AllowNetworkAccess"];
+//    [properties setObject:(id)kCFBooleanTrue forKey:@"AllowPlugIns"];
+//    [properties setObject:(id)kCFBooleanTrue forKey:@"AllowFullFileAccess"];
+//    [properties setObject:(id)kCFBooleanTrue forKey:@"AllowJavascript"];
+    
     NSData *htmlData = [weblocData html];
     NSLog(@"%@", weblocData.url);
     NSLog(@"%@", htmlData);
@@ -27,11 +33,11 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
         preview, 
         ((CFDataRef)htmlData),
         kUTTypeHTML, 
-        (CFDictionaryRef)props
+        (CFDictionaryRef)properties
     ); 
     
     [weblocData release];
-    [props release];
+    [properties release];
     
     [pool drain];
     return noErr;
