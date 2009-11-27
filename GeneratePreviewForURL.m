@@ -23,10 +23,9 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
     NSData *htmlData = [weblocData html];
     NSLog(@"%@", weblocData.url);
     NSLog(@"%@", htmlData);
-    NSLog(@"%@", [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.google.com"]]);
     QLPreviewRequestSetDataRepresentation(
         preview, 
-        ((CFDataRef)[[NSString stringWithFormat:@"%@", weblocData.url] dataUsingEncoding:NSUTF8StringEncoding]),
+        ((CFDataRef)htmlData),
         kUTTypeHTML, 
         (CFDictionaryRef)props
     ); 
