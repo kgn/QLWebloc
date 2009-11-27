@@ -1,3 +1,11 @@
+//
+//  GenerateThumbnailForURL.m
+//  QLWebloc
+//
+//  Created by David Keegan on 11/26/09.
+//  Copyright 2009 InScopeApps{+}. All rights reserved.
+//
+
 #include <CoreFoundation/CoreFoundation.h>
 #include <CoreServices/CoreServices.h>
 #include <QuickLook/QuickLook.h>
@@ -10,7 +18,7 @@
 
 OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thumbnail, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options, CGSize maxSize)
 {
-    #warning To complete your generator please implement the function GenerateThumbnailForURL in GenerateThumbnailForURL.c
+    //#warning To complete your generator please implement the function GenerateThumbnailForURL in GenerateThumbnailForURL.c
     return noErr;
 }
 
