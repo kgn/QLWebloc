@@ -14,8 +14,8 @@
 
 @property (nonatomic, copy) NSURL *url;
 
++ (NSURL *)getURLFromFile:(NSString *)file;
 - (id)initWithFile:(NSString *)file;
-- (NSURL *)getURLFromFile:(NSString *)file;
 - (NSData *)html;
 
 @end
