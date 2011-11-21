@@ -1,3 +1,5 @@
+Quicklook in Lion now does what this project attempted to do.
+
 This is a failed attempt to display the content of a webpage in quicklook from a .webloc file. It's a failed attempt because quicklook doesn't allow network access. However this project would become useful if Apple removes this restriction :)
 
 In the commits I outline what I attempted to get this to work. I first tried NSData dataWithContentsOfURL:, no luck. So then I thought I was clever and tried to use the command line tool curl, but that didn't work either.
